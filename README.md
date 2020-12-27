@@ -1,20 +1,6 @@
 # Homelab
 
-## Proxmox
-
-- ISO images stored in `/var/lib/vz/template/iso`
-
-### Setup
-
-1. Install Proxmox on R710
-2. Update
-
-   ```shell
-   apt update
-   apt upgrade -y
-   ```
-
-3. Install utilities
+## General Utilities
 
    ```shell
    apt install vim fish exa fd-find
@@ -33,6 +19,7 @@
    ```
 
    ```vimrc
+   " ~/.vimrc
    set hlsearch    " highlight all search results
    set ignorecase  " do case insensitive search 
    set incsearch   " show incremental search results as you type
@@ -40,6 +27,21 @@
    set noswapfile  " disable swap file
    ```
 
+## Proxmox
+
+- ISO images stored in `/var/lib/vz/template/iso`
+
+### Setup
+
+1. Install Proxmox on R710
+2. Update
+
+   ```shell
+   apt update
+   apt upgrade -y
+   ```
+
+3. Install utilities
 4. Set up PCI pass through for RAID controller (<https://pve.proxmox.com/wiki/Pci_passthrough>)
    1. Make sure drives are each set up as independent RAID0 configurations in RAID
       controller
@@ -61,3 +63,9 @@
       ```
 
    5. Reboot
+
+## TrueNAS
+
+1. Install TrueNAS in VM with PCI pass through for drive controller
+2. Create Pool with all available drives
+3. Create Data Sets
